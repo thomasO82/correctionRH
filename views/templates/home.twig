@@ -1,0 +1,54 @@
+{% extends "../base.twig" %}
+
+{% block main %}
+	<main>
+		<h2>Tableau de bord</h2>
+        {% include "../layouts/_modal.twig" %}
+		{% if employees %}
+			<div class="row">
+				{% for employee in employees %}
+					<div class="card">
+						<div class="card-content">
+							<div>
+								<img src="/img/uploads/{{employee.img}}" width="100px" alt="{{employee.name}}">
+							</div>
+							<div>
+								<p>{{employee.name}}
+									{{employee.firstname}}</p>
+								<p>{{employee.role}}</p>
+								<span class="blam">
+									<p>blame:
+										{{employee.blame}}</p>
+									<a href="#id01"  onclick='openModal(this)' data-route="blameEmployee/{{employee.id}}" data-sentence="Voullez vous blamer cet employé ?" >
+										<button class="btnBlam">blamer</button>
+									</a>
+
+								</span>
+
+							</div>
+						</div>
+						<div class="btn-content">
+							<a href="/updateEmployee/{{employee.id}}">
+								<button class="btn-update">Modifier</button>
+							</a>
+							<a href="#id01" onclick='openModal(this)' data-route="deleteEmployee/{{employee.id}}" data-sentence="Voullez vous supprimer cet employé ?" >
+								<button class="btnBlam">Supprimer</button>
+							</a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<div class="add-employee">
+				<a href="/addEmployee">
+					<span class="material-symbols-outlined icon-size-100">
+						add
+					</span>
+				</a>
+			</div>
+
+
+		{% endif %}
+	</main>
+{% endblock %}
+

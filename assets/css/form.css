@@ -1,0 +1,55 @@
+form {
+    width: 40vw;
+    background-color: #e3b67a;
+    border-radius: 25px;
+    margin: auto;
+    padding: 50px;
+    color: white;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+form div input {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    height: 29px;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+    
+}
+
+
+form button {
+    display: flex;
+    margin: 20px auto 20px auto;
+    background-color: #bb5959;
+    border: none;
+    border-radius: 4px;
+    padding: 13px;
+    font-size: 15px;
+    color:white;
+}
+
+form span{
+    display: flex;
+    justify-content: space-between;
+}
+
+form span:last-child{
+    color:red
+}
+
+form p{
+    margin: 0;
+}
+
+.error{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    color: red;
+}

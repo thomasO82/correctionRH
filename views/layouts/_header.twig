@@ -1,0 +1,45 @@
+{% block style %}
+	<link rel="stylesheet" href="/css/header.css">
+{% endblock %}
+<header>
+	<h1>
+		<img class="logo" src="/img/logo.png" alt="Projet RH">
+	</h1>
+	<nav>
+		<ul>
+			{% if session.companyId %}
+				<li>
+					<a href="/addEmployee">
+						<span class="material-symbols-outlined">
+							person_add
+						</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="/logout">
+						<span class="material-symbols-outlined">
+							logout
+						</span>
+					</a>
+				</li>
+			{% else %}
+				<li>
+					<a href="/login">
+						<span class="material-symbols-outlined">
+							login
+						</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="/register">
+						<span class="material-symbols-outlined m-auto">
+							app_registration
+						</span>
+					</a>
+				</li>
+			{% endif %}
+		</ul>
+	</nav>
+</header>

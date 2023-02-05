@@ -1,0 +1,62 @@
+{% extends "../base.twig" %}
+{% block style %}
+	<link rel="stylesheet" href="/css/form.css">
+{% endblock %}
+
+{% block main %}
+	<main>
+		<section>
+			<h2>Inscription</h2>
+          <p class="error">{{errorMail}}</p>
+			<form action="/register" method="post">
+				<div>
+					<span>
+						<label for="register_name">Nom de l'entreprise</label>
+						<span>{{errors.name.message}}</span>
+					</span>
+					<input type="text" id="register_name" name="name" value="{{company.name}}">
+				</div>
+				<div>
+					<span>
+						<label for="register_siret">Siret</label>
+						<span>{{errors.siret.message}}</span>
+					</span>
+					<input type="text" id="register_siret" name="siret" value="{{company.siret}}">
+				</div>
+				<div>
+					<span>
+						<label for="register_mail">Mail</label>
+						<span>{{errors.mail.message}}</span>
+					</span>
+					<input type="mail" id="register_mail" name="mail" value="{{company.mail}}">
+				</div>
+				<div>
+					<span>
+						<label for="register_name_director">Nom du directeur</label>
+						<span>{{errors.name_director.message}}</span>
+					</span>
+					<input type="text" id="register_name_director" name="name_director" value="{{company.name_director}}">
+				</div>
+				<div>
+					<span>
+						<label for="register_password">Mot de passe</label>
+						<span>{{errors.password.message}}</span>
+					</span>
+					<input type="password" id="register_password" name="password" value="{{company.name_password}}">
+				</div>
+                <div>
+					<span>
+						<label for="register_confirm_password">Confirmer le mot de passe</label>
+						<span>{{errorConfirmPassword}}</span>
+					</span>
+					<input type="password" id="register_password" name="confirmPassword" value="{{company.name_password}}">
+				</div>
+				<div>
+					<button type="submit">Envoyé</button>
+
+				</div>
+			</form>
+		</section>
+
+	</main>
+{% endblock %}

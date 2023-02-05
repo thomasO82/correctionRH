@@ -1,0 +1,51 @@
+{% extends "../base.twig" %}
+{% block style %}
+	<link rel="stylesheet" href="/css/form.css">
+{% endblock %}
+
+
+
+{% block main %}
+	<main>
+		<section>
+			<h2>{{ action == "update" ? "modifier un employé" : "Ajout d'un employé" }}</h2>
+           
+			<form action= {{ action == "update" ? "/updateEmployee/" ~ employee.id : "/addEmployee" }} method="post" enctype="multipart/form-data">
+				<div>
+					<span>
+						<label for="employee_name">Nom</label>
+						<span>{{errors.errors.name}}</span>
+					</span>
+					<input type="text" id="employee_name" name="name" value="{{employee.name}}">
+				</div>
+				<div>
+					<span>
+						<label for="employee_firstname">Prenom</label>
+						<span>{{errors.errors.firstname}}</span>
+					</span>
+					<input type="text" id="employee_firstname" name="firstname" value="{{employee.firstname}}">
+				</div>
+                <div>
+					<span>
+						<label for="employee_role">Fonction</label>
+						<span>{{errors.errors.role}}</span>
+					</span>
+					<input type="text" id="employee_role" name="role" value="{{employee.role}}">
+				</div>
+                 <div>
+					<span>
+						<label for="employee_img">Photo</label>
+						<span>{{fileError}}</span>
+					</span>
+					<input type="file" onchange="previewPicture(this)" accept=".jpg, .png, .jpeg" id="employee_img" name="img">
+				</div>
+				<img src="/img/uploads/{{employee.img}}" id="image" alt="" width="100px">
+				<div>
+					<button type="submit">Envoyé</button>
+				</div>
+
+			</form>
+		</section>
+
+	</main>
+{% endblock %}

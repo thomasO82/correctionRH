@@ -1,0 +1,36 @@
+{% extends "../base.twig" %}
+{% block style %}
+	<link rel="stylesheet" href="/css/form.css">
+{% endblock %}
+
+
+
+{% block main %}
+	<main>
+		<section>
+			<h2>Connexion</h2>
+			<form action="/login" method="post">
+				<div>
+					<span>
+						<label for="login_mail">mail</label>
+						<span>{{error.mail}}</span>
+					</span>
+					<input type="text" id="login_mail" name="mail" value="{{company.mail}}">
+				</div>
+				<div>
+					<span>
+						<label for="login_password">Mot de passe</label>
+						<span>{{error.password}}</span>
+					</span>
+					<input type="password" id="login_password" name="password">
+				</div>
+				
+				<div>
+					<button type="submit">Envoyé</button>
+				</div>
+
+			</form>
+		</section>
+
+	</main>
+{% endblock %}

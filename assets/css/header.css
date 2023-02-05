@@ -1,0 +1,31 @@
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #bb5959;
+
+}
+
+nav ul{
+    display: flex; 
+    justify-content: space-around;  
+    align-items: center;
+}
+
+nav ul li{
+    margin: 0px 20px 0px 20px;
+    list-style-type: none;
+}
+
+nav li{
+    text-align: center;
+}
+
+nav span{
+    color: aliceblue;
+}
+
+.logo{
+    width: 70px;
+}
