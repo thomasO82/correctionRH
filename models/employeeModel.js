@@ -12,7 +12,7 @@ const employeeSchema = new mongoose.Schema({
             validator: function(v) {
                 return /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u.test(v);
             },
-            message: "Please enter a valid name"
+            message: "Entrez un nom valide"
         },
     },
     firstname: {
@@ -22,7 +22,7 @@ const employeeSchema = new mongoose.Schema({
             validator: function(v) {
                 return /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u.test(v);
             },
-            message: "Please enter a valid name"
+            message: "Entrez un prenom valide"
         },
     },
     role: {

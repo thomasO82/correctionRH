@@ -36,12 +36,17 @@ companyRouter.post('/register', async (req, res) => {
         if (findCompani) {
             throw {mailsign: "cette adresse mail est deja enregistrer"}
         }
+        if (!/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/g.test(req.body.password)) {
+            throw {passwordError:"le mot de passe doit contenir 8 caracteres, une majuscule et un chiffre"}
+
+        }
         req.body.password = bcrypt.hashSync(req.body.password, parseInt(process.env.SALT));
         let newCompany = new companyModel(req.body)
         let err = newCompany.validateSync()
         if (err) {
             throw err
         }
+        newCompany.password = bcrypt.hashSync(req.body.password, parseInt(process.env.SALT));
         await newCompany.save()
         res.redirect('/')
     } catch (error) {
@@ -49,7 +54,8 @@ companyRouter.post('/register', async (req, res) => {
             errors: error.errors,
             errorConfirmPassword: error.confirmPassword,
             errorMail: error.mailsign,
-            company: req.body
+            company: req.body,
+            passwordError: error.passwordError
         })
     }
 })
